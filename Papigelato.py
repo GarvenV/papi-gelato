@@ -1,7 +1,16 @@
-print ('Welkom bij Papi Gelato')
-print  ("je mag alle smaken kiezen zolang het maar vanille ijs is")
-   
+def PapiGelato():
+    print ('Welkom bij Papi Gelato.')
+    Gelatomarkt = input('Bent u particulier of zakelijk?')
+    if Gelatomarkt == 'particulier':
+        particulierbolletjes()
+    if Gelatomarkt == 'zakelijk':
+        zakelijkLiter()
 
+
+slagroom = 0
+sprinkels = 0
+caramelsaushoortnje = 0 
+caramelsausbakje = 0
 
 #------soortbolletjes--------
 def soortbolletjes (aantal):
@@ -57,31 +66,22 @@ def bakjehoorntjes(aantal):
         print('Sorry dat is geen optie die we aanbieden..')
 
 #-------toppings------    
-def toppings(bakje):
-    top = input('wat voor topping wilt u: A) Geen B) Slagroom, C) Sprinkels of D) Caramel Saus?')
-    if top == "A":
-        totaal_topping = 0
-        return totaal_topping
-    elif top == "B":
-        totaal_topping = 0.40
-        return totaal_topping
+def topping(bolletjes,hoorntjebakje,hoorntje,bakje):
+    toppings = input('Wat voor topping wilt u: Slagroom,  Sprinkels of  CaramelSaus?')
+    if toppings == 'Slagroom':
+        slagroom == 0.50
+        print ('Dat wordt Slagroom op je Bolletjes.')
+    if toppings == 'Sprinkels':
+        sprinkels == 0.30
+        print ('Dat worden Sprinkles op je Bolletjes.')
+    if toppings == 'CaramelSaus' and hoorntje == 1:
+        CaramelsausHoorntje == 0.60
+        print ('Dat wordt CaramelSaus met je Hoorntje.')
+    if toppings == 'CaramelSaus' and bakje == 1:
+        Caramelsausbakje == 0.90
+        print ('Dat wordt CaramelSaus met je Bakje.')
 
-    elif top == "C":
-        totaal_topping = 0.60
-        return totaal_topping
-        
-    elif top == "D":
-        if bakje == 0:
-            totaal_topping = 0.70
-            return totaal_topping
-           
-        elif bakje == 1:
-            totaal_topping = 0.95
-            return totaal_topping
-        
-            
-    else:
-        print("Sorry dat begrijp ik niet.")
+    particulierresultaat(toppings,bolletjes,hoorntje,bakje,slagroom,sprinkels,CaramelsausHoorntje,Caramelsausbakje)
 
 
 #-------prijs-------
