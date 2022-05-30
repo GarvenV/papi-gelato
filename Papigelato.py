@@ -1,4 +1,5 @@
-print ("Welkom bij Papi Gelato je mag alle smaken kiezen zolang het maar vanille ijs is")
+print ('Welkom bij Papi Gelato')
+print  ("je mag alle smaken kiezen zolang het maar vanille ijs is")
 def soortbolletjes (aantal):
     v = 1
     for x in range (1,aantal=1):
@@ -97,4 +98,3 @@ def toppings(bakje):
         print("Sorry dat begrijp ik niet.")
 
 
-        
