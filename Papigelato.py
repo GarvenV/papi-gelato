@@ -9,61 +9,61 @@ def PapiGelato():
 
 slagroom = 0
 sprinkels = 0
-caramelsaushoortnje = 0 
+caramelsaushoorntje = 0 
 caramelsausbakje = 0
 
-#------soortbolletjes--------
-def soortbolletjes (aantal):
-    v = 1
-    for x in range (1,aantal=1):
-        soort = input('Welke smaak wilt u voor bolletje nummer' + str(x) + '? A) Aardbei, C) Chocolade of V) Vanille?')
-        if soort == "V" or "M" or "C" or "A":
-            x += 1
+#------particulierbolletjes--------
+def particulierbolletjes(aantal):
+    bolletjes = int(input('Hoeveel bolletjes wilt u? \n'))  
+    if bolletjes > 8:
+        print ('Sorry, zulke grote bakken hebben we niet.')
+        particulierbolletjes()
+    elif bolletjes  <= 3:
+        print ('Dus,' , bolletjes , 'bolletjes.')
+    elif bolletjes > 3:
+        print ('Dan krijgt u van mij een bakje met' , bolletjes , 'bolletjes')
+
+    particuliersmaak(bolletjes)
+    return bolletjes
+    
+
+#-----smaak------
+
+def particuliersmaak(bolletjes):
+    if  (bolletjes > 3) or (bolletjes <= 3) == True:
+        Smaakbol = bolletjes   
+        while Smaakbol > 0:
+            Smaakbol = Smaakbol - 1
+            smaak = input(print('Welke smaak wilt u voor bolletje nummer', Smaakbol ,'?',' Aardbei, Chocolade of Vanille? \n'))
+
+        if smaak == 'Aardbei' or smaak == 'Chocolade' or  smaak == 'Vanille':
+            print ('bolletje{s}.', bolletjes, 'heeft het smaak,' , smaak)
+
         else:
-            print('Sorry dat is geen optie die we aanbieden..')
-            soortbolletjes()
+            print ('Sorry dat is geen optie die we aanbieden...')
+            particuliersmaak(bolletjes)
+    hoorntje(bolletjes)
 
-#-----aantalbolletjes------
-def aantalbolletjes():
-    aantal = int(input('Hoeveel bolletjes wilt u?'))
-    if aantal >= 1 and aantal <= 3:
-        soortbolletjes(aantal)
-        bakjehoorntjes(aantal)
-        
-    elif aantal >= 4 and aantal <= 8:
-        print('Dan krijgt u van mij een bakje met ' + str(aantal) + ' bolletjes')
-        soortbolletjes(aantal)
-    elif aantal > 8:
-        print('Sorry, zulke grote bakken hebben we niet')
+
+#------hoorntjes------
+def hoorntje(bolletjes):
+    hoorntjebakje = input('Wilt u deze bolletje(s). in een hoorntje of een bakje? \n')
+    hoorntje = 'hoorntje' and 0
+    bakje = 'bakje' and 0
+
+    if hoorntjebakje == 'bakje':
+        bakje = 1
+        print ('Dat wordt 1 Bakje.')
+    elif hoorntjebakje == 'hoorntje':
+        hoorntje = 1
+        print ('Dat wordt 1 Hoorntje.')
     else:
         print('Sorry dat is geen optie die we aanbieden..')
+        hoorntje()
+    topping(bolletjes,hoorntjebakje,hoorntje,bakje)
 
 
-#------bakjehoorntjes------
-def bakjehoorntjes(aantal):
-    bakjehoorntje = input('Wilt u deze ' + str(aantal) + ' bolletje(s) in A) een hoorntje of B) een bakje?')
-    if bakjehoorntje == "A":
-        
-        totaal = prijs(aantal, 1, 0, 0)
-        hoorntje = input('Hier is uw hoorntje met ' + str(aantal) + ' bolletje(s). Wilt u nog meer bestellen? (Y/N)')
-        if hoorntje == 'Y':
-            aantalbolletjes()
-            
-        elif hoorntje == 'N':
-            
-            print('Bedankt en tot ziens')
-
-
-    elif bakjehoorntje == "B":
-        totaal = prijs(aantal, 0, 1, 1)
-        bakje = input('Hier is uw bakje met ' + str(aantal) + ' bolletje(s). Wilt u nog meer bestellen? (Y/N)')
-        if bakje == 'Y':
-            aantalbolletjes()
-        elif bakje == 'N':
-            totaal()
-            print('Bedankt en tot ziens')
-    else:
-        print('Sorry dat is geen optie die we aanbieden..')
+      
 
 #-------toppings------    
 def topping(bolletjes,hoorntjebakje,hoorntje,bakje):
@@ -75,18 +75,18 @@ def topping(bolletjes,hoorntjebakje,hoorntje,bakje):
         sprinkels == 0.30
         print ('Dat worden Sprinkles op je Bolletjes.')
     if toppings == 'CaramelSaus' and hoorntje == 1:
-        CaramelsausHoorntje == 0.60
+        caramelsaushoorntje == 0.60
         print ('Dat wordt CaramelSaus met je Hoorntje.')
     if toppings == 'CaramelSaus' and bakje == 1:
-        Caramelsausbakje == 0.90
+        caramelsausbakje == 0.90
         print ('Dat wordt CaramelSaus met je Bakje.')
 
-    particulierresultaat(toppings,bolletjes,hoorntje,bakje,slagroom,sprinkels,CaramelsausHoorntje,Caramelsausbakje)
+    particulierresultaat(toppings,bolletjes,hoorntje,bakje,slagroom,sprinkels,caramelsaushoorntje, caramelsausbakje)
 
 
 #-------prijs-------
-def prijs (aantal,hoorntje,bol,top):
-    top = toppings(top) 
+def particulierresultaat  (aantal,hoorntje,bol,top):
+    top = topping(top) 
     totaalprijs = 0 
     bolletje = round(1.10, 2)
     hoorn = 1.25
@@ -109,3 +109,41 @@ def prijs (aantal,hoorntje,bol,top):
 
     return totaalprijs 
 
+#----------zakelijkijs----------
+def zakelijkLiter():
+    Liter = int(input('Hoeveel Liter wilt u? \n'))
+    zakelijksmaak(Liter)
+
+
+
+#----------zakelijkijs----------
+def zakelijkLiter():
+    Liter = int(input('Hoeveel Liter wilt u? \n'))
+    zakelijksmaak(Liter)
+
+
+#----------zakelijksmaak----------
+def zakelijksmaak(Liter):
+    smaakAardbei = int(input('Hoeveel Liter Aardbei wilt u? \n'))
+    Totaalliter = Liter - smaakAardbei 
+    print(Totaalliter)
+    if Totaalliter > 0:
+        smaakChocolade = int(input('Hoeveel Liter Chocolade wilt u? \n'))
+        Totaalliter = Totaalliter - smaakChocolade
+        print(Totaalliter)
+    if Totaalliter > 0:
+        smaakVanille = int(input('Hoeveel Vanille Chocolade wilt u? \n'))
+        Totaalliter = Totaalliter - smaakVanille
+        print(Totaalliter)
+
+    zakelijkresultaat(Liter)
+
+
+def zakelijkresultaat(Liter):
+    print ("---------[Papi Gelato]---------")
+    print ('Liter'  , Liter , 'x 9.80  = ', Liter*9.80)
+    print ("-------------------------------")
+    print ('Totaal                         = ', Liter*9.80 )
+    print ('BTW(9%)                        = ', (Liter*9.80) / 100 * 6)
+
+PapiGelato()
